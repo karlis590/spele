@@ -10,12 +10,14 @@ button, input { font: inherit; padding: 10px; margin: 4px; }
 button { cursor: pointer; }
 img { max-width: 100%; height: auto; }
 [hidden] { display: none !important; }
-
+body { background-color: #edf5ff; color: #17212b; }
+button { background-color: #960303; color: white; border: 0; border-radius: 11px; }
+button:hover { background-color: #1a8305; }
 </style>
 </head>
 <body>
 <h1>Ķer</h1>
- <p>Ķer merķis un noteikumi
+<p>Ķer merķis un noteikumi
     </p>
     <ul>
         <li>Ķer merķis: Noķer pēc iespējas vairāk bandītus</li>
@@ -24,25 +26,17 @@ img { max-width: 100%; height: auto; }
         <li>Izvairies no šķēršļim</li>
         <li>Spēle beidzās, ja spēlētājs kļūdas un ietriecas šķēršļī</li>
     </ul>
-<section id="sakums">
-  <h2>Sākuma ekrāns</h2>
-  <button onclick="paraditSpeli()">Sākt spēli</button>
-</section>
-<section id="laukums" hidden>
-  <h2>Spēles ekrāns</h2>
-  <p>Punkti: 000</p>
-  <p>Šeit vēlāk būs spēlētājs.</p>
-  <button onclick="paraditSakumu()">Atpakaļ</button>
-</section>
+<img src="attēli/varonis12.png" alt="Ķērājs" width="128"></body>
+<p>Uzvaras skaņa:</p>
+<audio controls src="Audio/klikskis.wav"></audio>
+<p id="punkti">Punkti: 0</p>
+<button onclick="savakt()">Noķer Bandītu</button>
 <script>
-// Gatavā palīdzība pogām. Šodien maini lapas tekstu un izvietojumu.
-function paraditSpeli() {
-  document.getElementById("sakums").hidden = true;
-  document.getElementById("laukums").hidden = false;
-}
-function paraditSakumu() {
-  document.getElementById("sakums").hidden = false;
-  document.getElementById("laukums").hidden = true;
+// Gatava poga. Šajā tēmā mācies noformēt lapu un sakārtot failus.
+let punkti = 0;
+function savakt() {
+  punkti = punkti + 1;
+  document.getElementById("punkti").textContent = "Punkti: " + punkti;
 }
 </script>
 </body>
