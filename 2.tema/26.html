@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ķer</title>
+<style>
+/* Pamata izkārtojums — šīs rindas nemaini */
+body { font-family: Arial, sans-serif; max-width: 680px; margin: 24px auto; padding: 16px; line-height: 1.6; }
+button, input { font: inherit; padding: 10px 16px; margin: 6px 0; cursor: pointer; }
+img, audio { max-width: 100%; }
+[hidden] { display: none !important; }
+
+/* NOFORMĒ ŠEIT: pielieto 2.1. un 2.2. nodarbībā apgūto CSS */
+body {
+  background-color: #afaeae;
+  color: #ffffff;
+  text-align: center;
+}
+
+h1 {
+  color: #fffdfd; text-align: center;
+}
+
+
+.noteikumi {
+  background-color: #960303;
+  padding: 16px;
+  border-radius: 12px;
+  border: 2px solid #ffffff;
+  text-align: left;
+}
+
+.laukums {
+  align-items: center;
+  width: 360px;
+  padding: 20px;
+  border: 2px solid #ffffff;
+  background-color: #960303;
+  box-sizing: border-box; 
+  text-align: center;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 100%;
+}
+
+button {
+  background-color: #245b91;
+  color: #fff9f9;
+}
+button { background-color: #afaeae; color: #ffffff; border: 0; border-radius: 12px; }
+button:hover { background-color: #1a8305; }
+</style>
+</head>
+<body>
+<h1>Ķer</h1>
+<p>Īss spēles mērķa apraksts spēlētājam.</p>
+<section class="noteikumi">
+  <h2>Noteikumi</h2>
+  <p>Ķer merķis un noteikumi
+    </p>
+    <ul>
+        <li>Ķer merķis: Noķer pēc iespējas vairāk bandītus</li>
+        <li>Spēles noteikumi: Vadi spēli ar bultiņu taustiņiem</li>
+        <li>Pēc katra noķertā spēles temps palielinas</li>
+        <li>Izvairies no šķēršļim</li>
+        <li>Spēle beidzās, ja spēlētājs kļūdas un ietriecas šķēršļī</li>
+    </ul>
+</section>
+<div class="laukums">
+  <h2>Spēles laukums</h2>
+  <img src="attēli/varonis12.png" alt="Ķērājs" width="128"></body>
+<p>Uzvaras skaņa:</p>
+<audio controls src="Audio/klikskis.wav"></audio>
+  <p id="punkti">Punkti: 0</p>
+  <button onclick="savakt()">Savākt punktu</button>
+</div>
+<script>
+// Gatava punktu poga — šo skriptu nemaini.
+let punkti = 0;
+function savakt() {
+  punkti = punkti + 1;
+  document.getElementById("punkti").textContent = "Punkti: " + punkti;
+}
+</script>
+</body>
+</html>
