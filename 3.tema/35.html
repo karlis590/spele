@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ķer</title>
+<style>
+/* Pamata izkārtojums — šīs rindas nemaini */
+body { font-family: Arial, sans-serif; max-width: 680px; margin: 24px auto; padding: 16px; line-height: 1.6; background-color: #f8fafc; color: #1e293b; }
+.panelis { background-color: #ffffff; border: 2px solid #cbd5e1; border-radius: 12px; padding: 18px; margin: 16px 0; }
+.panelis p { margin: 10px 0; }
+button { font: inherit; padding: 10px 14px; margin: 4px 6px 4px 0; cursor: pointer; background-color: #245b91; color: #ffffff; border: 0; border-radius: 8px; }
+button.secondary { background-color: #475569; margin-top: 8px; }
+#atbilde { font-size: 18px; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<h1>Ķer</h1>
+<p id="noteikumi">Izvēlies vietu, kur meklēt dārgumus.</p>
+<div class="panelis">
+  </p>
+    <ul>
+        <li>Ķer merķis: Noķer pēc iespējas vairāk bandītus</li>
+        <li>Spēles noteikumi: Vadi spēli ar bultiņu taustiņiem</li>
+        <li>Pēc katra noķertā spēles temps palielinas</li>
+        <li>Izvairies no šķēršļim</li>
+        <li>Spēle beidzās, ja spēlētājs kļūdas un ietriecas šķēršļī</li>
+    </ul>
+  <!-- 2. UZDEVUMS: šeit virs #pogas pievieno <p id="vietu-skaits"></p> -->
+   <p id="vietu-skaits"></p>
+  <div id="pogas"></div>
+  <p id="atbilde">Izvēlies vietu, nospiežot kādu no pogām.</p>
+  <p id="gajieni">Gājieni: 0</p>
+  <button class="secondary" onclick="location.reload()">Sākt no jauna</button>
+</div>
+<script>
+// === 2. UZDEVUMS — MAINI ŠEIT: ieraksti 5 savas spēles vietas ===
+const vietas = ["lielceļā", "pilsētā", "laukos", "mežā", "upē"];
+let gajieni = 0;
+
+// === 2. UZDEVUMS — PAPILDINI ŠEIT: parādi pieejamo vietu skaitu ar vietas.length ===
+document.getElementById("vietu-skaits").textContent = "Pieejamās vietas: " + vietas.length;
+// === GATAVĀ DAĻA — cikls izveido vienu pogu katrai masīva vietai ===
+for (let i = 0; i < vietas.length; i = i + 1) {
+  const poga = document.createElement("button");
+  poga.textContent = (i + 1) + ". " + vietas[i];
+  poga.onclick = function () { izveleties(vietas[i]); };
+  document.getElementById("pogas").append(poga);
+}
+
+// === 3. UZDEVUMS — PAPILDINI ŠEIT: pielāgo gājiena ziņu savai spēlei ===
+function izveleties(vieta) {
+  gajieni = gajieni + 1;
+  document.getElementById("atbilde").textContent = "Tu ķer " + vieta + " turpini kert!";
+  document.getElementById("gajieni").textContent = "apmeklēto vietu skaits: " + gajieni;
+}
+</script>
+</body>
+</html>
